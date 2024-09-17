@@ -97,5 +97,4 @@ jobs:
           IMAGE_TAG: latest
           REPO_NAME: frontend
         run: |
-          kustomize edit set image frontend=591039136020.dkr.ecr.us-east-1.amazonaws.com/frontend:latest
-          kustomize build | kubectl apply -f -
+          kubectl apply -k .
