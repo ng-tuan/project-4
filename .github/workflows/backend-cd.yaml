@@ -80,7 +80,7 @@ jobs:
           IMAGE_TAG: latest
           REPO_NAME: backend
         run: |
-          docker build --build-arg=REACT_APP_MOVIE_API_URL=http://localhost:5000 --tag 591039136020.dkr.ecr.us-east-1.amazonaws.com/backend:latest .
+          docker build --tag 591039136020.dkr.ecr.us-east-1.amazonaws.com/backend:latest .
           docker push 591039136020.dkr.ecr.us-east-1.amazonaws.com/backend:latest
       - name: Update Kubeconfig
         run: aws eks update-kubeconfig --name cluster --region us-east-1
