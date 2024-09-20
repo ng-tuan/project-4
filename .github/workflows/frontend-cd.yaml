@@ -1,13 +1,14 @@
 name: Frontend Continuous Deployment
 
 on:
-  push:
-    branches:
-      - main
   workflow_dispatch:
   pull_request:
+    types: [closed]
     branches:
       - main
+    paths:
+      - "starter/frontend/**"
+      - ".github/workflows/frontend**"
 
 jobs:
   Linting:
