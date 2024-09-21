@@ -94,11 +94,8 @@ jobs:
 
       - name: Configure Kubeconfig
         run: aws eks update-kubeconfig --name cluster --region us-east-1
-
       - name: Deploy Docker Image to Amazon EKS
         working-directory: starter/frontend/k8s
-        env:
-          IMAGE_TAG: latest
-          REPO_NAME: frontend
         run: |
-          kubectl apply -k .
+          kustomize edit set image frontend=007171156788.dkr.ecr.us-east-1.amazonaws.com/frontend:latest
+          kustomize build | kubectl apply -f -
