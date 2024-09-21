@@ -2,6 +2,9 @@ name: Backend Continuous Deployment
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - main
   pull_request:
     types: [closed]
     branches:
@@ -81,8 +84,8 @@ jobs:
           IMAGE_TAG: latest
           REPO_NAME: backend
         run: |
-          docker build --tag 591039136020.dkr.ecr.us-east-1.amazonaws.com/backend:latest .
-          docker push 591039136020.dkr.ecr.us-east-1.amazonaws.com/backend:latest
+          docker build --tag 007171156788.dkr.ecr.us-east-1.amazonaws.com/backend:latest .
+          docker push 007171156788.dkr.ecr.us-east-1.amazonaws.com/backend:latest
       - name: Update Kubeconfig
         run: aws eks update-kubeconfig --name cluster --region us-east-1
 
@@ -93,5 +96,5 @@ jobs:
           REPO_NAME: backend
         run: |
           aws eks update-kubeconfig --name cluster --region us-east-1
-          kustomize edit set image backend=591039136020.dkr.ecr.us-east-1.amazonaws.com/backend:latest
+          kustomize edit set image backend=007171156788.dkr.ecr.us-east-1.amazonaws.com/backend:latest
           kustomize build | kubectl apply --force -k .
