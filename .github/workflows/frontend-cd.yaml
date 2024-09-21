@@ -88,7 +88,7 @@ jobs:
         env:
           REACT_APP_MOVIE_API_URL: ${{ secrets.REACT_APP_MOVIE_API_URL }}
         run: |
-          docker build --build-arg REACT_APP_MOVIE_API_URL=${REACT_APP_MOVIE_API_URL} --tag 007171156788.dkr.ecr.us-east-1.amazonaws.com/frontend:latest .
+          docker build --tag 007171156788.dkr.ecr.us-east-1.amazonaws.com/frontend:latest .
           docker push 007171156788.dkr.ecr.us-east-1.amazonaws.com/frontend:latest
 
       - name: Configure Kubeconfig
