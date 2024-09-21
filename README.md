@@ -469,3 +469,6 @@ kustomize build | kubectl apply -f -
 ## License
 
 [License](LICENSE.md)
+
+FE: http://aa3b2b75f643f4875a2d2bd883d6d6c8-1731461063.us-east-1.elb.amazonaws.com/
+BE: http://a43a06b00f077401ba7134c602ce10a4-1279860044.us-east-1.elb.amazonaws.com/movies
